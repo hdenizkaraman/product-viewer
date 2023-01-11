@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    <section class="page-limiter background-set" style="background-image: url({% static 'img/product.svg' %});">
+        <div class="container h-100">
+            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+
+                
+                <div class="product-frame">
+                    <div class="bg-light pointer-shadow rounded-2 px-3 py-2 font-bebas fs-3 d-flex justify-content-between">
+                        <span>{{product.price}} TL</span>
+                        <span>
+                            {% if product.activity == True %}
+                            STOKTA
+                            {% else %}
+                            STOKTA DEĞİL
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="product-image background-set" style="background-image: url('{{product.photo}}');"></div>
+                    <div class="text-uppercase font-mont">{{product.name}}</div>
+                    <div class="d-flex justify-content-end"> <a href="{% url 'index' %}" class="bg-light pointer-shadow rounded-2 px-3 py-2 text-dark text-decoration-none"> <i class="bi bi-houses-fill me-1"></i> ANA SAYFA </a> </div>
+                </div>
+            
+                <div class="footer w-100 text-center fw-bold mt-5" style="opacity:0.3;"> THIS WEBSITE DEVELOPED BY <a target="_blank" href="https://bio.link/denizkaraman" class="text-dark"> DENİZ KARAMAN </a> </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
